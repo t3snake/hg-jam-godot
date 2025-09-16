@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5ldc0jw6jffu"
-path="res://.godot/imported/jump.fbx-b0d38a0a9f91a734d9e61eca774bda50.scn"
+uid="uid://5nit7poda4ql"
+path="res://.godot/imported/3d_mc.fbx-4890bb4109bc5235834e5fced42db71f.scn"
 
 [deps]
 
-source_file="res://Models/Character/Animation/jump.fbx"
-dest_files=["res://.godot/imported/jump.fbx-b0d38a0a9f91a734d9e61eca774bda50.scn"]
+source_file="res://Models/CharacterOld/3d_mc.fbx"
+dest_files=["res://.godot/imported/3d_mc.fbx-4890bb4109bc5235834e5fced42db71f.scn"]
 
 [params]
 
@@ -32,7 +32,14 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"skin": {
+"use_external/enabled": true,
+"use_external/path": "uid://buncb77q3f30u"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

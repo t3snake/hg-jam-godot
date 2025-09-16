@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/world3d.tscn")
 
 #func _on_level_select_button_pressed() -> void:
 	#get_tree().change_scene_to_file("res://Scenes/ui/level_select_menu.tscn")

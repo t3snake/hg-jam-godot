@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dccoqxxyvggf"]
 
 [ext_resource type="Script" uid="uid://ip2pkv3mqsem" path="res://Scripts/3d_main_character.gd" id="1_ae0qh"]
-[ext_resource type="PackedScene" uid="uid://5nit7poda4ql" path="res://Models/Character/3d_mc.fbx" id="1_njbok"]
-[ext_resource type="Texture2D" uid="uid://dbaybkeglgdk8" path="res://Models/Character/Textures/3d_mc_male_variant.png" id="2_fggbs"]
+[ext_resource type="PackedScene" uid="uid://5nit7poda4ql" path="res://Models/CharacterOld/3d_mc.fbx" id="1_njbok"]
+[ext_resource type="Texture2D" uid="uid://dbaybkeglgdk8" path="res://Models/CharacterOld/Textures/3d_mc_male_variant.png" id="2_fggbs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g01dc"]
 albedo_texture = ExtResource("2_fggbs")
@@ -1219,37 +1219,37 @@ bones/16/rotation = Quaternion(-0.707107, 9.41569e-08, 0.707107, 9.4157e-08)
 bones/18/position = Vector3(-4.99155e-07, -0.00104, 0.0148206)
 bones/19/position = Vector3(4.64599e-06, 0.00321951, -4.65689e-10)
 bones/19/rotation = Quaternion(5.28985e-05, -0.0277724, 0.999613, 0.00144519)
-bones/20/rotation = Quaternion(-0.00436648, -1.02281e-08, -1.09991e-08, 0.999991)
+bones/20/rotation = Quaternion(0.0155372, -1.04326e-08, -1.0784e-08, 0.999879)
 bones/21/rotation = Quaternion(0.0623484, -0.0448529, -0.00280481, 0.997042)
 bones/22/rotation = Quaternion(0.0940942, -3.90998e-09, -2.64099e-10, 0.995563)
-bones/23/rotation = Quaternion(0.0766157, -2.68545e-09, 1.05083e-09, 0.997061)
-bones/24/rotation = Quaternion(-0.108831, 0.0437293, -0.0103631, 0.993044)
+bones/23/rotation = Quaternion(0.0952639, -0.0004422, -0.00162842, 0.995451)
+bones/24/rotation = Quaternion(-0.179189, 0.0443557, -0.00722649, 0.982788)
 bones/26/rotation = Quaternion(0.597656, 0.395508, 0.565647, -0.407951)
-bones/27/rotation = Quaternion(-0.359615, 0.67303, -0.240337, 0.599955)
-bones/28/rotation = Quaternion(0.351215, -0.0730593, -0.07077, 0.930754)
-bones/29/rotation = Quaternion(-0.0150854, 0.724359, -0.0315801, 0.688534)
+bones/27/rotation = Quaternion(-0.332179, 0.649272, -0.243558, 0.639361)
+bones/28/rotation = Quaternion(0.354798, -0.0418102, -0.105606, 0.928018)
+bones/29/rotation = Quaternion(0.00441296, 0.72176, -0.042056, 0.69085)
 bones/31/rotation = Quaternion(0.771667, 0.0466405, 0.00196556, 0.634311)
 bones/32/rotation = Quaternion(0.410935, -0.0278593, 0.0125054, 0.911153)
 bones/34/rotation = Quaternion(-0.213061, 0.695039, 0.358431, 0.585707)
 bones/35/rotation = Quaternion(0.660648, -0.0754557, 0.119352, 0.737296)
 bones/37/rotation = Quaternion(0.678187, -0.48571, 0.463529, 0.298814)
-bones/38/rotation = Quaternion(0.0472979, 0.906256, 0.401212, -0.12447)
-bones/39/rotation = Quaternion(-0.0678256, -0.0210801, 0.351795, 0.933379)
-bones/40/rotation = Quaternion(-0.0108135, 0.109294, -0.0332856, 0.993393)
+bones/38/rotation = Quaternion(0.0713411, 0.908619, 0.3827, -0.151204)
+bones/39/rotation = Quaternion(-0.105195, -0.0351685, 0.350667, 0.929908)
+bones/40/rotation = Quaternion(-0.00880678, 0.168413, -0.0338719, 0.985095)
 bones/42/rotation = Quaternion(-0.7474, 0.0422068, 0.00765553, 0.662988)
 bones/43/rotation = Quaternion(-0.410937, -0.0278581, -0.0125049, 0.911152)
 bones/45/rotation = Quaternion(-0.23102, 0.802493, -0.347127, -0.426776)
 bones/46/rotation = Quaternion(-0.595143, 0.0459219, 0.310654, 0.739723)
-bones/48/rotation = Quaternion(0.996598, 0.0689332, -0.00274987, 0.0451)
-bones/49/rotation = Quaternion(0.34591, 0.0305003, 0.12914, 0.928837)
+bones/48/rotation = Quaternion(0.993406, 0.0827906, -0.00212421, 0.0792794)
+bones/49/rotation = Quaternion(0.410585, 0.0294983, 0.153286, 0.898361)
 bones/49/scale = Vector3(1, 1, 1)
-bones/50/rotation = Quaternion(-0.660568, -0.159216, -0.157469, 0.716592)
+bones/50/rotation = Quaternion(-0.688024, -0.153819, -0.160127, 0.690885)
 bones/51/rotation = Quaternion(-0.0198198, 0.952286, -0.298255, 0.0616592)
-bones/53/rotation = Quaternion(0.972734, -0.0543277, -0.152305, 0.166251)
+bones/53/rotation = Quaternion(0.965841, -0.063674, -0.151457, 0.200392)
 bones/53/scale = Vector3(0.999996, 1, 1)
-bones/54/rotation = Quaternion(0.391448, 0.0105369, -0.166705, 0.904913)
+bones/54/rotation = Quaternion(0.447756, 0.0101712, -0.190684, 0.873528)
 bones/54/scale = Vector3(1, 1, 1)
-bones/55/rotation = Quaternion(-0.617624, 0.218594, 0.171985, 0.735649)
+bones/55/rotation = Quaternion(-0.641935, 0.215879, 0.174131, 0.714839)
 bones/56/rotation = Quaternion(0.0282603, 0.953941, -0.297574, -0.0254478)
 
 [node name="characterMedium" parent="Model/Root/Skeleton3D" index="0"]

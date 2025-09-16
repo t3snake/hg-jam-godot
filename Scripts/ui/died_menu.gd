@@ -9,7 +9,8 @@ func _ready() -> void:
 	%BestClearTime.text = "Best Clear Time: %.2f s" % high_score
 
 func _on_restart_button_pressed() -> void:
-	GlobalState.restart_level()
+	#GlobalState.restart_level()
+	get_tree().change_scene_to_file("res://Scenes/world3d.tscn")
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/ui/main_menu.tscn")
