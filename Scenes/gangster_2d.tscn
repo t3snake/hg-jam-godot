@@ -1,6 +1,7 @@
-[gd_scene load_steps=94 format=3 uid="uid://pxi6hs4ec7qy"]
+[gd_scene load_steps=95 format=3 uid="uid://pxi6hs4ec7qy"]
 
 [ext_resource type="Texture2D" uid="uid://xdyjmlj1frc4" path="res://assets/Sprites/Craftpix_Gangster/Dead.png" id="1_dangr"]
+[ext_resource type="Script" uid="uid://bxlsiu6nfaamx" path="res://Scripts/gangster_2d.gd" id="1_oieqh"]
 [ext_resource type="Texture2D" uid="uid://c17fuigdlhtr6" path="res://assets/Sprites/Craftpix_Gangster/Hurt.png" id="2_oieqh"]
 [ext_resource type="Texture2D" uid="uid://b8h8s30642qoq" path="res://assets/Sprites/Craftpix_Gangster/Idle.png" id="3_hg7dt"]
 [ext_resource type="Texture2D" uid="uid://fa5pgqa5yh2x" path="res://assets/Sprites/Craftpix_Gangster/Idle_2.png" id="4_pdect"]
@@ -630,6 +631,7 @@ animations = [{
 size = Vector2(30, 70)
 
 [node name="Gangster2D" type="CharacterBody2D"]
+script = ExtResource("1_oieqh")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0ojyx")

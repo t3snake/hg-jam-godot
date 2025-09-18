@@ -10,8 +10,8 @@ Godot 4.4 in Compatibility mode
 Web Build Hosted
 
 ## Assets Used (CC0)
+- [Gangster Pixel Characters by Craftpix](https://free-game-assets.itch.io/free-gangster-pixel-character-sprite-sheets-pack)  
 - [Mini Characters by Kenney](https://kenney.nl/assets/mini-characters-1)  
-- [Platformer kit by Kenney](https://kenney.nl/assets/platformer-kit)  
 - [Tiny Swords (Only for UI) by Pixelfrog](https://pixelfrog-assets.itch.io/tiny-swords) (old version with CC0)  
 - [Charter font by Mathew Carter](https://practicaltypography.com/charter.html)  
 - [Sounds from Halftone by VOiD1](https://void1gaming.itch.io/halftone-sound-effects-pack-lite)  
