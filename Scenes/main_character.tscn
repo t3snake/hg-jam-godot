@@ -1,7 +1,7 @@
 [gd_scene load_steps=50 format=4 uid="uid://c80xh4l3qsvrr"]
 
 [ext_resource type="Script" uid="uid://bl5oei7fg4s7k" path="res://Scripts/main_character.gd" id="1_11o2n"]
-[ext_resource type="Texture2D" uid="uid://qub1iu2pkxeo" path="res://Models/CharacterOld/Textures/colormap.png" id="2_024ki"]
+[ext_resource type="Texture2D" uid="uid://qub1iu2pkxeo" path="res://assets/Models/CharacterOld/Textures/colormap.png" id="2_024ki"]
 [ext_resource type="AudioStream" uid="uid://cpdo28dw3twwf" path="res://assets/Sounds/VOiD1/Collectibles_3.wav" id="3_auhcp"]
 [ext_resource type="AudioStream" uid="uid://bmh2ikun1tw2a" path="res://assets/Sounds/Kenney/footstep_grass_000.ogg" id="5_024ki"]
 [ext_resource type="AudioStream" uid="uid://hgc3u5wyt5r5" path="res://assets/Sounds/Kenney/footstep_grass_001.ogg" id="6_esnnb"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7rci0gelfvjr"]
 
 [ext_resource type="Texture2D" uid="uid://bw3amxscqygqq" path="res://assets/UI/naveena/background_scaled.png" id="1_a2k7q"]
-[ext_resource type="Script" uid="uid://bfarhrlfkhwd0" path="res://Scripts/ui/died_menu.gd" id="1_uwx80"]
+[ext_resource type="Script" uid="uid://bfarhrlfkhwd0" path="res://Scripts/UI/died_menu.gd" id="1_uwx80"]
 [ext_resource type="FontFile" uid="uid://cfrp63w0hyxlv" path="res://assets/Font/MathewCarter/Charter Regular.ttf" id="4_kuoiw"]
-[ext_resource type="PackedScene" uid="uid://csvjt4mwllq78" path="res://Scenes/ui/base_button.tscn" id="4_v7v7b"]
+[ext_resource type="PackedScene" uid="uid://csvjt4mwllq78" path="res://Scenes/UI/base_button.tscn" id="4_v7v7b"]
 
 [node name="DiedMenu" type="CanvasLayer"]
 script = ExtResource("1_uwx80")

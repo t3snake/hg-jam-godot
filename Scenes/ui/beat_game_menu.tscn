@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://1y18vd8drkgd"]
 
-[ext_resource type="Script" uid="uid://bnkv6y2je7w2h" path="res://Scripts/ui/beat_game_menu.gd" id="1_7cpgs"]
+[ext_resource type="Script" uid="uid://bnkv6y2je7w2h" path="res://Scripts/UI/beat_game_menu.gd" id="1_7cpgs"]
 [ext_resource type="Texture2D" uid="uid://bw3amxscqygqq" path="res://assets/UI/naveena/background_scaled.png" id="1_qvjnm"]
 [ext_resource type="FontFile" uid="uid://cfrp63w0hyxlv" path="res://assets/Font/MathewCarter/Charter Regular.ttf" id="4_1xsq3"]
-[ext_resource type="PackedScene" uid="uid://csvjt4mwllq78" path="res://Scenes/ui/base_button.tscn" id="6_hto04"]
+[ext_resource type="PackedScene" uid="uid://csvjt4mwllq78" path="res://Scenes/UI/base_button.tscn" id="6_hto04"]
 
 [node name="BeatGameMenu" type="CanvasLayer"]
 script = ExtResource("1_7cpgs")

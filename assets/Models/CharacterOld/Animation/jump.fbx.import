@@ -3,21 +3,23 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bmkqr0xdu2svl"
-path="res://.godot/imported/3d_baby_mc.glb-30bf93570c23e406d876cb9da477c0ff.scn"
+uid="uid://5ldc0jw6jffu"
+path="res://.godot/imported/jump.fbx-8cec657521d1257f423d4a102a442a1f.scn"
 
 [deps]
 
-source_file="res://Models/CharacterOld/3d_baby_mc.glb"
-dest_files=["res://.godot/imported/3d_baby_mc.glb-30bf93570c23e406d876cb9da477c0ff.scn"]
+source_file="res://assets/Models/CharacterOld/Animation/jump.fbx"
+dest_files=["res://.godot/imported/jump.fbx-8cec657521d1257f423d4a102a442a1f.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -28,10 +30,15 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
-gltf/embedded_image_handling=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=1

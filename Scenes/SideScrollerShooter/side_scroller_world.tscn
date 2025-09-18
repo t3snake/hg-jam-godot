@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2brmxitwvi1m"]
+
+[ext_resource type="TileSet" uid="uid://by4sghwlcdykm" path="res://resources/oakwood_tileset.tres" id="1_pmlkg"]
+
+[node name="SideScrollerWorld" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_pmlkg")

@@ -4,20 +4,22 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cnw3qlrcyv118"
-path="res://.godot/imported/idle.fbx-f399c5178e15b9f9e1d24ea9f98e7ff0.scn"
+path="res://.godot/imported/idle.fbx-e5c9409ba26df9d72765eff51f2d8057.scn"
 
 [deps]
 
-source_file="res://Models/CharacterOld/Animation/idle.fbx"
-dest_files=["res://.godot/imported/idle.fbx-f399c5178e15b9f9e1d24ea9f98e7ff0.scn"]
+source_file="res://assets/Models/CharacterOld/Animation/idle.fbx"
+dest_files=["res://.godot/imported/idle.fbx-e5c9409ba26df9d72765eff51f2d8057.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,7 +34,11 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
+fbx/naming_version=1
