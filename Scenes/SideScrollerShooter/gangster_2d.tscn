@@ -1,6 +1,7 @@
-[gd_scene load_steps=95 format=3 uid="uid://pxi6hs4ec7qy"]
+[gd_scene load_steps=102 format=3 uid="uid://pxi6hs4ec7qy"]
 
 [ext_resource type="Script" uid="uid://bxlsiu6nfaamx" path="res://Scripts/SideScrollerShooter/gangster_2d.gd" id="1_pyu44"]
+[ext_resource type="PackedScene" uid="uid://bmm8giqld6mvn" path="res://Scenes/SideScrollerShooter/bullet_2d.tscn" id="2_m8jij"]
 [ext_resource type="Texture2D" uid="uid://xdyjmlj1frc4" path="res://assets/Sprites/Craftpix_Gangster/Dead.png" id="2_opwoa"]
 [ext_resource type="Texture2D" uid="uid://c17fuigdlhtr6" path="res://assets/Sprites/Craftpix_Gangster/Hurt.png" id="3_m8jij"]
 [ext_resource type="Texture2D" uid="uid://b8h8s30642qoq" path="res://assets/Sprites/Craftpix_Gangster/Idle.png" id="4_wukxk"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bda5uxvxhsw0g" path="res://assets/Sprites/Craftpix_Gangster/Run.png" id="9_fcv7e"]
 [ext_resource type="Texture2D" uid="uid://8wgxsaktw0tx" path="res://assets/Sprites/Craftpix_Gangster/Shot.png" id="10_bo56p"]
 [ext_resource type="Texture2D" uid="uid://d4fkfferwbtw7" path="res://assets/Sprites/Craftpix_Gangster/Walk.png" id="11_4ivov"]
+[ext_resource type="Texture2D" uid="uid://c3il2h6ocueib" path="res://assets/Sprites/t3snake/FastBulletSprite.png" id="12_opwoa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wsgo"]
 atlas = ExtResource("2_opwoa")
@@ -136,13 +138,13 @@ region = Rect2(256, 0, 128, 128)
 atlas = ExtResource("6_8gdpk")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6yac0"]
-atlas = ExtResource("6_8gdpk")
-region = Rect2(512, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_a7kjs"]
 atlas = ExtResource("6_8gdpk")
 region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yac0"]
+atlas = ExtResource("6_8gdpk")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3t12s"]
 atlas = ExtResource("6_8gdpk")
@@ -432,7 +434,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -448,10 +450,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_l3y5x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6yac0")
+"texture": SubResource("AtlasTexture_a7kjs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a7kjs")
+"texture": SubResource("AtlasTexture_6yac0")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3t12s")
@@ -481,7 +483,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"melee",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -537,7 +539,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"reload",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -572,7 +574,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -589,7 +591,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 9.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -624,7 +626,43 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 9.0
+"speed": 11.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8jij"]
+atlas = ExtResource("12_opwoa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wukxk"]
+atlas = ExtResource("12_opwoa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ug0ly"]
+atlas = ExtResource("12_opwoa")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gdpk"]
+atlas = ExtResource("12_opwoa")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3b8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8jij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wukxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ug0ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gdpk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ll0v5"]
@@ -632,11 +670,24 @@ size = Vector2(30, 70)
 
 [node name="Gangster2D" type="CharacterBody2D"]
 script = ExtResource("1_pyu44")
+bullet_2d = ExtResource("2_m8jij")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0ojyx")
-animation = &"run"
+animation = &"shoot"
+
+[node name="MuzzleFlash" type="AnimatedSprite2D" parent="Sprite"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(25, 26)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_v3b8y")
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 29)
 shape = SubResource("RectangleShape2D_ll0v5")
+
+[connection signal="animation_looped" from="Sprite" to="." method="_on_sprite_animation_looped"]
+[connection signal="animation_finished" from="Sprite/MuzzleFlash" to="." method="_on_muzzle_flash_animation_finished"]

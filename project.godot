@@ -64,11 +64,18 @@ click={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Tilemap"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
