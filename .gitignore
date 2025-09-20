@@ -4,3 +4,4 @@ AssetsZip/*
 .godot/
 /android/*
 /Builds/*
+**/*.tmp

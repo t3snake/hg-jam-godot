@@ -13,6 +13,7 @@ config_version=5
 config/name="ADHD HG Jam"
 run/main_scene="uid://lqe61ylgs8xr"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+run/max_fps=144
 config/icon="res://icon.svg"
 
 [autoload]
@@ -69,6 +70,7 @@ click={
 2d_physics/layer_1="Tilemap"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Bullet"
 
 [physics]
 

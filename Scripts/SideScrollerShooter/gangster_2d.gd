@@ -2,19 +2,22 @@ extends CharacterBody2D
 
 class_name GangsterMC
 
-@export var speed = 1200
-@export var jump_speed = -1800
-@export var gravity = 4000
+@export var speed := 1200
+@export var jump_speed := -1800
+@export var gravity := 4000
+@export var camera_lerp_speed := 5.0
 @export_range(0.0, 1.0) var friction = 0.1
 @export_range(0.0 , 1.0) var acceleration = 0.25
 
 @export var bullet_2d: PackedScene
+#@export var camera: Camera2D
 
 var is_running : bool
 var is_shooting : bool
 var is_jumping : bool
 
-@onready var sprite := $Sprite
+@onready var sprite_parent := %SpriteParent
+@onready var sprite := %GangsterSprite
 @onready var muzzle_flash := %MuzzleFlash
 
 
@@ -34,21 +37,19 @@ func _physics_process(delta):
 		return
 	
 	velocity.y += gravity * delta
-
 	var horizontal_input = Input.get_axis("left", "right")
+	
 	if is_zero_approx(horizontal_input):
 		velocity.x = lerp(velocity.x, 0.0, friction)
 	else:
 		velocity.x = lerp(velocity.x, horizontal_input * speed, acceleration)
-	
-	if !is_zero_approx(horizontal_input): # only flip when moving
-		if horizontal_input < 0:
-			sprite.scale.x = -1
+		
+		if horizontal_input < 0: # only flip when moving
+			sprite_parent.scale.x = -1
 		else:
-			sprite.scale.x = 1
+			sprite_parent.scale.x = 1
 	
 	is_running = absf(horizontal_input) > 0.5
-
 	move_and_slide()
 	
 	if is_jumping and is_on_floor():
@@ -83,12 +84,12 @@ func _on_sprite_animation_looped() -> void:
 		shoot_bullet()
 
 func shoot_bullet() -> void:
-	muzzle_flash.show()
+	#muzzle_flash.show()
 	muzzle_flash.play("default")
 	# TODO instantiate bullet
 	var bullet := bullet_2d.instantiate()
-	add_child(bullet)
+	get_parent().add_child(bullet)
 	bullet.start(
-		sprite.scale.x > 0,  # is positive x direction
+		sprite_parent.scale.x > 0,  # is positive x direction
 		muzzle_flash.global_position  # initial position of bullet
 	)

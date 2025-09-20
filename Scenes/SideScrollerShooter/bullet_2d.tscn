@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmm8giqld6mvn"]
+[gd_scene load_steps=12 format=3 uid="uid://bmm8giqld6mvn"]
 
 [ext_resource type="Script" uid="uid://x8y3lhfbc1co" path="res://Scripts/SideScrollerShooter/bullet_2d.gd" id="1_db7gx"]
 [ext_resource type="Texture2D" uid="uid://c3il2h6ocueib" path="res://assets/Sprites/t3snake/FastBulletSprite.png" id="1_ij7so"]
@@ -10,6 +10,20 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6g0dy"]
 atlas = ExtResource("1_ij7so")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3xp8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db7gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g0dy")
+}],
+"loop": true,
+"name": &"bullet",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6k8an"]
 atlas = ExtResource("1_ij7so")
@@ -27,19 +41,8 @@ region = Rect2(256, 0, 32, 32)
 atlas = ExtResource("1_ij7so")
 region = Rect2(288, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_i3xp8"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_db7gx"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_db7gx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6g0dy")
-}],
-"loop": true,
-"name": &"bullet",
-"speed": 10.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6k8an")
@@ -59,17 +62,31 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_la1xa"]
-size = Vector2(20, 9)
+size = Vector2(32, 12)
 
 [node name="Bullet2D" type="Area2D"]
+collision_layer = 8
+collision_mask = 5
+input_pickable = false
 script = ExtResource("1_db7gx")
+speed = 1500
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="BulletSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_i3xp8")
 animation = &"bullet"
 
+[node name="ImpactSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-17, -1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_db7gx")
+animation = &"impact"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_la1xa")
 
 [node name="Lifetime" type="Timer" parent="."]
@@ -78,5 +95,5 @@ one_shot = true
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="animation_finished" from="ImpactSprite" to="." method="_on_impact_sprite_animation_finished"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
