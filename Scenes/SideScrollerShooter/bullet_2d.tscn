@@ -65,6 +65,7 @@ animations = [{
 size = Vector2(32, 12)
 
 [node name="Bullet2D" type="Area2D"]
+z_index = 6
 collision_layer = 8
 collision_mask = 5
 input_pickable = false
@@ -73,6 +74,7 @@ speed = 1500
 
 [node name="BulletSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+z_index = 6
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_i3xp8")
 animation = &"bullet"
@@ -80,6 +82,7 @@ animation = &"bullet"
 [node name="ImpactSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 6
 position = Vector2(-17, -1)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_db7gx")

@@ -5,7 +5,6 @@ class_name GangsterMC
 @export var speed := 1200
 @export var jump_speed := -1800
 @export var gravity := 4000
-@export var camera_lerp_speed := 5.0
 @export_range(0.0, 1.0) var friction = 0.1
 @export_range(0.0 , 1.0) var acceleration = 0.25
 
