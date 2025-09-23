@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b56eey3rdm1ix"
-path="res://.godot/imported/Recharge.png-b5179af6a922adc6857c352faad5dd7a.ctex"
+uid="uid://n1mngc6l2bfs"
+path="res://.godot/imported/Attack.png-00a3a55370cc3b044cd40610a041ed1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Craftpix_Gangster/Recharge.png"
-dest_files=["res://.godot/imported/Recharge.png-b5179af6a922adc6857c352faad5dd7a.ctex"]
+source_file="res://assets/Sprites/Craftpix/EnemyGangster/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-00a3a55370cc3b044cd40610a041ed1c.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

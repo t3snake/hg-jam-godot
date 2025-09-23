@@ -75,8 +75,8 @@ func play_animation(anim_name: String):
 		return
 	sprite.play(anim_name)
 
-func _on_muzzle_flash_animation_finished() -> void:
-	muzzle_flash.hide()
+#func _on_muzzle_flash_animation_finished() -> void:
+	#muzzle_flash.hide()
 
 func _on_sprite_animation_looped() -> void:
 	if is_shooting and sprite.animation == "shoot":
@@ -84,7 +84,7 @@ func _on_sprite_animation_looped() -> void:
 
 func shoot_bullet() -> void:
 	#muzzle_flash.show()
-	muzzle_flash.play("default")
+	#muzzle_flash.play("default")
 	# TODO instantiate bullet
 	var bullet := bullet_2d.instantiate()
 	get_parent().add_child(bullet)
