@@ -25,7 +25,10 @@ func _physics_process(delta: float) -> void:
 	
 	position += speed * direction * delta
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
+	if body is EnemyGangster:
+		body.register_hit()
+	
 	has_collided = true
 	bullet_sprite.hide()
 	impact_sprite.show()

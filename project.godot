@@ -27,6 +27,10 @@ window/size/viewport_height=720
 window/size/resizable=false
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom_font="uid://cfrp63w0hyxlv"
+
 [input]
 
 forward={

@@ -77,3 +77,8 @@ func unpause_timer() -> void:
 
 func stop_timer() -> void:
 	is_timer_active = false
+
+func sleep_for_ms(time: int) -> void:
+	get_tree().paused = true
+	await get_tree().create_timer(time/1000.0).timeout
+	get_tree().paused = false

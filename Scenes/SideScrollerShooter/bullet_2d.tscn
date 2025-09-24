@@ -94,7 +94,9 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_la1xa")
 
 [node name="Lifetime" type="Timer" parent="."]
-wait_time = 0.5
+process_priority = 2
+process_physics_priority = 2
+wait_time = 0.2
 one_shot = true
 autostart = true
 

@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 class_name GangsterMC
 
-@export var speed := 1200
-@export var jump_speed := -1800
-@export var gravity := 4000
+@export var speed := 300
+@export var jump_speed := -600
+@export var gravity := 1800
 @export_range(0.0, 1.0) var friction = 0.1
-@export_range(0.0 , 1.0) var acceleration = 0.25
+@export_range(0.0, 1.0) var acceleration = 0.25
 
 @export var bullet_2d: PackedScene
 #@export var camera: Camera2D
@@ -39,9 +39,9 @@ func _physics_process(delta):
 	var horizontal_input = Input.get_axis("left", "right")
 	
 	if is_zero_approx(horizontal_input):
-		velocity.x = lerp(velocity.x, 0.0, friction)
+		velocity.x = lerpf(velocity.x, 0.0, friction)
 	else:
-		velocity.x = lerp(velocity.x, horizontal_input * speed, acceleration)
+		velocity.x = lerpf(velocity.x, horizontal_input * speed, acceleration)
 		
 		if horizontal_input < 0: # only flip when moving
 			sprite_parent.scale.x = -1
