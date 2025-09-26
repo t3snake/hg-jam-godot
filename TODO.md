@@ -1,10 +1,12 @@
 ## Todo
 [ ] Add reload mechanic
-[ ] Player health bar and register hit
+[ ] Register hit by enemy on health
+[ ] Show Dopamine Bar and implement filling of the bar
+[ ] Stack both bars on left of the HUD
 [ ] Generate Enemies automatically
 [ ] 2 Minute timer? for overall task
 [ ] Add tutorial hud, start on any keypress
-[ ] Task: Meditate and
+[ ] Task: Do homework and resist impulses
 
 ## Finished
 [x] Add Camera in front and lerp for 2D
@@ -12,3 +14,5 @@
 [x] Learn parallax and add
 [x] Add enemy 
 [x] Sleep on hit of enemy, longer sleep on kill/melee
+[x] Player health bar
+[x] Time dilation mechanic

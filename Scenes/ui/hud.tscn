@@ -1,8 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://divq1aw52avpc"]
+[gd_scene load_steps=8 format=3 uid="uid://divq1aw52avpc"]
 
 [ext_resource type="Texture2D" uid="uid://bw3amxscqygqq" path="res://assets/UI/naveena/background_scaled.png" id="1_13sth"]
 [ext_resource type="Script" uid="uid://b80oy7ruo3dlu" path="res://Scripts/UI/hud.gd" id="1_kpdpg"]
 [ext_resource type="FontFile" uid="uid://cfrp63w0hyxlv" path="res://assets/Font/MathewCarter/Charter Regular.ttf" id="2_wecwr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdl0h"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8glcj"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.2657161, 0.6826365, 0.58873475, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsu76"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 0.4862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ux5h0"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6807353, 0.15336862, 0.22651076, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_kpdpg")
@@ -22,6 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="TimeElapsed" type="Label" parent="TextureRect/HBoxContainer"]
 unique_name_in_owner = true
@@ -47,6 +76,30 @@ theme_override_font_sizes/font_size = 40
 text = "Level X"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="WillpowerBar" type="ProgressBar" parent="TextureRect/HBoxContainer"]
+unique_name_in_owner = true
+z_index = 2
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_fdl0h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8glcj")
+value = 100.0
+show_percentage = false
+
+[node name="DamageBar" type="ProgressBar" parent="TextureRect/HBoxContainer/WillpowerBar"]
+unique_name_in_owner = true
+show_behind_parent = true
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 0
+offset_right = 424.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vsu76")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ux5h0")
+value = 60.0
+show_percentage = false
 
 [node name="HudUpdateTimer" type="Timer" parent="."]
 wait_time = 0.1
