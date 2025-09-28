@@ -22,6 +22,7 @@ func register_hit():
 	health -= 1
 	if health <= 0:
 		is_dead = true
+		GlobalState.dopamine_mp += 4.0
 		GlobalState.sleep_for_ms(20)
 	else:
 		is_hurt = true

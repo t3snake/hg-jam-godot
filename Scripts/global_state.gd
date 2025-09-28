@@ -30,8 +30,8 @@ func _ready() -> void:
 	is_timer_active = false
 	is_time_dilated = false
 	
-	willpower_hp = 100.0
-	dopamine_mp = 100.0
+	willpower_hp = 40.0
+	dopamine_mp = 0.0
 	
 	highscore_map = {}
 	bonus_time_map = [3, 3, 3, 4, 4, 5]
