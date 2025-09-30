@@ -1,9 +1,7 @@
 ## TODO
 [ ] Leave dead body of enemies (Partially done)
 [ ] Generate Enemies automatically
-[ ] Level Pass Condition: 2 Minute timer
 [ ] Add level select 3d hub, with tutorial hud when on position
-[ ] Fail Condition
 
 ## Finished
 [x] Add Camera in front and lerp for 2D
@@ -19,6 +17,8 @@
 [x] HUD: Stack vertically time and level title 
 [x] Level Management Refactor
 [x] Task: Focus and kill impulses
+[x] Level Pass Condition: 2 Minute timer
+[x] Level Fail Condition
 
 ## Out of scope
 [ ] Add reload mechanic

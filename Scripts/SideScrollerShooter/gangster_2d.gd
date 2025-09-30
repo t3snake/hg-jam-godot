@@ -14,6 +14,7 @@ class_name GangsterMC
 var is_running : bool
 var is_shooting : bool
 var is_jumping : bool
+var is_hurt : bool
 
 @onready var sprite_parent := %SpriteParent
 @onready var sprite := %GangsterSprite
@@ -33,6 +34,15 @@ func _input(event: InputEvent) -> void:
 		is_shooting = false
 
 func _process(_delta):
+	if GlobalState.timer >= 120.0:
+		GlobalState.set_level_cleared()
+		GlobalState.go_to_level(GlobalState.LevelBeatMenu)
+		return
+	
+	if GlobalState.willpower_hp <= 0:
+		game_over()
+		return
+	
 	set_animation()
 
 func _physics_process(delta):
@@ -63,7 +73,9 @@ func _physics_process(delta):
 		velocity.y = jump_speed
 
 func set_animation():
-	if is_shooting:
+	if is_hurt:
+		play_animation("hurt")
+	elif is_shooting:
 		play_animation("shoot")
 	elif is_jumping:
 		play_animation("jump")
@@ -86,6 +98,10 @@ func _on_sprite_animation_looped() -> void:
 	if is_shooting and sprite.animation == "shoot":
 		shoot_bullet()
 
+func _on_gangster_sprite_animation_finished() -> void:
+	if is_hurt and sprite.animation == "hurt":
+		is_hurt = false
+
 func shoot_bullet() -> void:
 	#muzzle_flash.show()
 	#muzzle_flash.play("default")
@@ -99,8 +115,9 @@ func shoot_bullet() -> void:
 
 func register_hit() -> void:
 	GlobalState.willpower_hp -= 5
+	is_hurt = true
 
 func game_over() -> void:
 	GlobalState.stop_timer()
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file("res://Scenes/ui/died_menu.tscn")
+	GlobalState.sleep_for_ms(100)
+	GlobalState.go_to_level(GlobalState.LevelFailMenu)

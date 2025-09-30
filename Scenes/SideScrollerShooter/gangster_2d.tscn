@@ -693,9 +693,7 @@ frame_progress = 1.0
 [node name="GangsterSprite" type="AnimatedSprite2D" parent="SpriteParent"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_0ojyx")
-animation = &"shoot"
-frame = 2
-frame_progress = 0.14362735
+animation = &"hurt"
 
 [node name="CameraTarget" type="Marker2D" parent="SpriteParent"]
 unique_name_in_owner = true
@@ -704,4 +702,5 @@ position = Vector2(220, -70)
 [node name="DopamineRegenTimer" type="Timer" parent="."]
 
 [connection signal="animation_finished" from="SpriteParent/MuzzleFlash" to="." method="_on_muzzle_flash_animation_finished"]
+[connection signal="animation_finished" from="SpriteParent/GangsterSprite" to="." method="_on_gangster_sprite_animation_finished"]
 [connection signal="animation_looped" from="SpriteParent/GangsterSprite" to="." method="_on_sprite_animation_looped"]

@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bacsxj46dvfla"]
+[gd_scene load_steps=6 format=3 uid="uid://bacsxj46dvfla"]
 
-[ext_resource type="Script" uid="uid://dvel3legjy3va" path="res://Scripts/ui/end_menu.gd" id="1_jgk52"]
+[ext_resource type="Script" uid="uid://dvel3legjy3va" path="res://Scripts/UI/end_menu.gd" id="1_jgk52"]
 [ext_resource type="Texture2D" uid="uid://bw3amxscqygqq" path="res://assets/UI/naveena/background_scaled.png" id="1_xhijr"]
 [ext_resource type="FontFile" uid="uid://cfrp63w0hyxlv" path="res://assets/Font/MathewCarter/Charter Regular.ttf" id="4_cxrfc"]
 [ext_resource type="StyleBox" uid="uid://1lsqtg2a4k5l" path="res://resources/button_hover_texture.tres" id="5_ajodo"]
-[ext_resource type="Texture2D" uid="uid://xwvoenwjx0nj" path="res://assets/UI/TinySword/UI/Button_Blue.png" id="5_jgk52"]
 [ext_resource type="StyleBox" uid="uid://d1d80l7b6kqnf" path="res://resources/button_texture.tres" id="5_omusw"]
-[ext_resource type="Texture2D" uid="uid://dss4kfchq43cf" path="res://assets/UI/TinySword/UI/Checked_Icon.png" id="6_omusw"]
 
 [node name="EndMenu" type="CanvasLayer"]
 script = ExtResource("1_jgk52")
@@ -121,7 +119,7 @@ theme_override_styles/hover_pressed_mirrored = ExtResource("5_omusw")
 theme_override_styles/focus = ExtResource("5_ajodo")
 text = "Main Menu"
 
-[node name="ClearTime" type="Label" parent="TextureRect"]
+[node name="Score" type="Label" parent="TextureRect"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 352.0
@@ -134,10 +132,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_cxrfc")
 theme_override_font_sizes/font_size = 50
-text = "Clear Time: 0.00 s"
+text = "Score: 0"
 horizontal_alignment = 1
 
-[node name="BestClearTime" type="Label" parent="TextureRect"]
+[node name="BestScore" type="Label" parent="TextureRect"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 354.0
@@ -150,38 +148,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_cxrfc")
 theme_override_font_sizes/font_size = 50
-text = "Best Time: 0.00 s"
+text = "Best Score: 0"
 horizontal_alignment = 1
-
-[node name="MarginContainerTargetTime" type="MarginContainer" parent="TextureRect"]
-layout_mode = 0
-offset_left = 250.0
-offset_top = 328.0
-offset_right = 1074.0
-offset_bottom = 399.0
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_right = 25
-
-[node name="TargetTime" type="Label" parent="TextureRect/MarginContainerTargetTime"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("4_cxrfc")
-theme_override_font_sizes/font_size = 50
-text = "Bonus Target Time: 0.00 s"
-horizontal_alignment = 1
-
-[node name="CheckBox" type="Sprite2D" parent="TextureRect/MarginContainerTargetTime"]
-position = Vector2(81, 44)
-texture = ExtResource("5_jgk52")
-
-[node name="CheckedIcon" type="Sprite2D" parent="TextureRect/MarginContainerTargetTime"]
-unique_name_in_owner = true
-position = Vector2(81, 44)
-texture = ExtResource("6_omusw")
 
 [connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

@@ -5,8 +5,9 @@ var timer: float
 var is_timer_active: bool
 
 # main game ids
+const LevelSelectHub3D := "level_select_hub"
 const SideScrollLevel := "side_scroll_shooter"
-const Race3DLevel := "race_3D_Level"
+const Race3DLevel := "race_Level"
 
 # ui scene ids
 const MainMenu := "main_menu"
@@ -14,20 +15,26 @@ const LevelBeatMenu := "level_beat"
 const LevelFailMenu := "level_fail"
 const GameBeatMenu := "game_beat"
 
-# resusable constants
+# reusable constants
 const scene_root := "res://Scenes/"
 
-## level id to scene path map
+# TODO In future would be nice to have all level management in level singleton
+
+## Stores path to scene for key: Level Id
 var level_scene_map := {
 	SideScrollLevel: scene_root + "SideScrollerShooter/side_scroller_world.tscn",
+	LevelSelectHub3D: scene_root + "LvlSelectHub3D/world3d.tscn",
 	# TODO other main levels
 	MainMenu: scene_root + "UI/main_menu.tscn",
+	LevelBeatMenu: scene_root + "UI/end_menu.tscn",
 	LevelFailMenu: scene_root + "UI/died_menu.tscn",
 	GameBeatMenu: scene_root + "UI/beat_game_menu.tscn"
 }
 
+## Stores title for key: Level id
 var level_title_map := {
-	SideScrollLevel: "Focus and kill impulses"
+	SideScrollLevel: "Focus and kill impulses",
+	LevelSelectHub3D: "Select a task to do"
 }
 
 ## Stores highscores for key: Level Id (global_state.gd)
@@ -51,7 +58,9 @@ var kbm_active: bool
 
 # Internal functions
 func _ready() -> void:
-	#levels_cleared = 0
+	reset_state()
+
+func reset_state() -> void:
 	timer = 0
 	is_timer_active = false
 	is_time_dilated = false
@@ -59,10 +68,10 @@ func _ready() -> void:
 	willpower_hp = 100.0
 	dopamine_mp = 0.0
 	
-	highscore_map = {}
-	#bonus_time_map = [3, 3, 3, 4, 4, 5]
-	#for lvl in range(total_levels):
-		#highscore_map[lvl] = 0
+	highscore_map = {
+		SideScrollLevel: 0,
+		Race3DLevel: 0
+	}
 
 func _process(delta: float) -> void:
 	if is_timer_active:
@@ -116,10 +125,6 @@ func set_level_cleared() -> void:
 ## Load scene for given level id (see constants in global_state.gd)
 func go_to_level(level_id: String) -> void:
 	get_tree().change_scene_to_file(level_scene_map[level_id])
-
-## Restart currently running level
-func restart_level() -> void:
-	get_tree().change_scene_to_file("res://Scenes/level%d.tscn" % current_level)
 
 # Timer functions
 

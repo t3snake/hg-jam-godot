@@ -223,6 +223,7 @@ animation = &"attack"
 [node name="DeadBodySprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 4
 texture = SubResource("AtlasTexture_t147p")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]

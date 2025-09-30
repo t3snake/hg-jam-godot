@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dccoqxxyvggf"]
 
-[ext_resource type="Script" uid="uid://ip2pkv3mqsem" path="res://Scripts/3d_main_character.gd" id="1_ae0qh"]
+[ext_resource type="Script" uid="uid://ip2pkv3mqsem" path="res://Scripts/LvlSelectHub3D/3d_main_character.gd" id="1_ae0qh"]
 [ext_resource type="PackedScene" uid="uid://5nit7poda4ql" path="res://assets/Models/CharacterOld/3d_mc.fbx" id="1_njbok"]
 [ext_resource type="Texture2D" uid="uid://dbaybkeglgdk8" path="res://assets/Models/CharacterOld/Textures/3d_mc_male_variant.png" id="2_fggbs"]
 
