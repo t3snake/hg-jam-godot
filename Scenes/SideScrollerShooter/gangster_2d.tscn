@@ -424,7 +424,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 9.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -708,7 +708,7 @@ frame_progress = 1.0
 [node name="GangsterSprite" type="AnimatedSprite2D" parent="SpriteParent"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_0ojyx")
-animation = &"walk"
+animation = &"hurt"
 
 [node name="CameraTarget" type="Marker2D" parent="SpriteParent"]
 unique_name_in_owner = true

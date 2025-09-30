@@ -14,6 +14,7 @@ class_name GangsterMC
 var is_running : bool
 var is_shooting : bool
 var is_jumping : bool
+var is_dead : bool
 var is_hurt : bool
 
 @onready var sprite_parent := %SpriteParent
@@ -40,19 +41,21 @@ func _input(event: InputEvent) -> void:
 		is_shooting = false
 
 func _process(_delta):
+	set_animation()
+	
 	if GlobalState.timer >= 120.0:
-		
 		GlobalState.set_level_cleared()
 		GlobalState.go_to_level(GlobalState.LevelBeatMenu)
 		return
 	
 	if GlobalState.willpower_hp <= 0:
-		game_over()
+		is_dead = true
 		return
-	
-	set_animation()
 
 func _physics_process(delta):
+	if is_dead:
+		return
+	
 	if is_shooting and is_on_floor():
 		return
 	
@@ -81,7 +84,9 @@ func _physics_process(delta):
 		jump_sound_player.play()
 
 func set_animation():
-	if is_hurt:
+	if is_dead:
+		play_animation("dead")
+	elif is_hurt:
 		play_animation("hurt")
 	elif is_shooting:
 		play_animation("shoot")
@@ -107,6 +112,11 @@ func _on_sprite_animation_looped() -> void:
 		shoot_bullet()
 
 func _on_gangster_sprite_animation_finished() -> void:
+	if is_dead and sprite.animation == "dead":
+		is_dead = false
+		game_over()
+		return
+	
 	if is_hurt and sprite.animation == "hurt":
 		is_hurt = false
 
@@ -132,6 +142,7 @@ func shoot_bullet() -> void:
 
 func register_hit() -> void:
 	GlobalState.willpower_hp -= 5
+	GlobalState.dopamine_mp += 5
 	is_hurt = true
 	hurt_sound_player.play()
 	GlobalState.sleep_for_ms(20)

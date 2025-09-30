@@ -4,6 +4,9 @@ extends Node
 var timer: float
 var is_timer_active: bool
 
+var score : int
+var enemies_killed : int
+
 # main game ids
 const LevelSelectHub3D := "level_select_hub"
 const SideScrollLevel := "side_scroll_shooter"
@@ -71,10 +74,16 @@ func reset_state() -> void:
 	
 	willpower_hp = 100.0
 	dopamine_mp = 0.0
+	
+	score = 0
+	enemies_killed = 0
 
 func _process(delta: float) -> void:
 	if is_timer_active:
 		timer += delta
+	
+	if dopamine_mp > 100.0:
+		dopamine_mp = 100.0
 	
 	if is_time_dilated:
 		dopamine_mp -= dopamine_decay_rate * delta
@@ -115,11 +124,24 @@ func init_level(level: String) -> void:
 ## Set level as cleared
 func set_level_cleared() -> void:	
 	is_current_level_cleared = true
+	update_high_score()
+
+## Calculate score and update highscore if required
+func update_high_score():
+	calculate_score()
 	
 	if highscore_map[current_level] == 0:
-		highscore_map[current_level] = timer
-	elif timer < highscore_map[current_level]:
-		highscore_map[current_level] = timer
+		highscore_map[current_level] = score
+	elif score > highscore_map[current_level]:
+		highscore_map[current_level] = score
+
+func calculate_score():
+	var timer_score = timer * 10
+	var health_score = willpower_hp * 30
+	var dopamine_score = dopamine_mp * 20
+	var enemy_kill_score = enemies_killed * 20
+	
+	score = int(timer_score + health_score + dopamine_score + enemy_kill_score)
 
 ## Load scene for given level id (see constants in global_state.gd)
 func go_to_level(level_id: String) -> void:

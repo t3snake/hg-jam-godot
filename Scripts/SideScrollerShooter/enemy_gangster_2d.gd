@@ -81,6 +81,7 @@ func _on_sprite_animation_finished() -> void:
 	
 	if sprite.animation == "dead":
 		is_dead = false
+		GlobalState.enemies_killed += 1
 		# TODO leave dead body sprite - spawn here?
 		
 		var dead_body = dead_body_sprite.instantiate()

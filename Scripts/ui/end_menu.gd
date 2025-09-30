@@ -4,12 +4,20 @@ extends CanvasLayer
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	var current_level = GlobalState.current_level
-	%Score.text = "Score: %d" % GlobalState.timer
 	GlobalState.set_level_cleared()
+	
+	var current_level = GlobalState.current_level
+	%Score.text = "Score: %d" % GlobalState.score
 	
 	var high_score = GlobalState.highscore_map[current_level]
 	%BestScore.text = "Best Score: %d" % high_score
+	
+	if GlobalState.score < 4500:
+		%Outcome.text = "You rated slightly below expectation."
+	elif GlobalState.score < 6500:
+		%Outcome.text = "You met expectations."
+	else:
+		%Outcome.text = "You exceeded expectations."
 	
 	# Target reached checkbox logic
 	#var bonus_time = GlobalState.bonus_time_map[current_level - 1]

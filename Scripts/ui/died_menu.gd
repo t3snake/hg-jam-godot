@@ -4,8 +4,8 @@ extends CanvasLayer
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	var current_level = GlobalState.current_level
-	var high_score = GlobalState.highscore_map[current_level]
+	GlobalState.update_high_score()
+	var high_score = GlobalState.highscore_map[GlobalState.current_level]
 	%BestScore.text = "Best Score: %d" % high_score
 
 func _on_restart_button_pressed() -> void:
