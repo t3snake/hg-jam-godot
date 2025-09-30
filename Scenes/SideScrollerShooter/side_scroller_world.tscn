@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://2brmxitwvi1m"]
+[gd_scene load_steps=10 format=4 uid="uid://2brmxitwvi1m"]
 
 [ext_resource type="TileSet" uid="uid://by4sghwlcdykm" path="res://resources/oakwood_tileset.tres" id="1_pmlkg"]
+[ext_resource type="Script" uid="uid://cxqk62c62e1sn" path="res://Scripts/SideScrollerShooter/side_scroller_world.gd" id="1_uwspe"]
 [ext_resource type="Script" uid="uid://dyni04evfb2e4" path="res://Scripts/SideScrollerShooter/camera_2d.gd" id="2_0uqj4"]
 [ext_resource type="PackedScene" uid="uid://pxi6hs4ec7qy" path="res://Scenes/SideScrollerShooter/gangster_2d.tscn" id="2_vlokl"]
 [ext_resource type="Texture2D" uid="uid://dg8v662qgq3ei" path="res://assets/Tilemap2D/brullov/background/background_layer_2.png" id="3_8c5tn"]
@@ -10,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://divq1aw52avpc" path="res://Scenes/UI/hud.tscn" id="8_tyq44"]
 
 [node name="SideScrollerWorld" type="Node2D"]
+script = ExtResource("1_uwspe")
+enemy_gangster = ExtResource("7_fa7k8")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("character_marker")]
 process_priority = 1
@@ -85,11 +88,17 @@ position = Vector2(161, -36)
 position = Vector2(136, -36)
 
 [node name="EnemyGangster2D3" parent="Enemies" instance=ExtResource("7_fa7k8")]
-position = Vector2(447, -104)
+position = Vector2(542, -104)
 
 [node name="HUD" parent="." instance=ExtResource("8_tyq44")]
 hint_enabled = true
 hint_text = "Maintain focus for 2 minutes and dont get hit by your impulses."
 bar_delay = 10
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
 
 [editable path="Gangster2D"]
