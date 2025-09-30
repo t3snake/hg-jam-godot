@@ -59,6 +59,10 @@ var kbm_active: bool
 # Internal functions
 func _ready() -> void:
 	reset_state()
+	highscore_map = {
+		SideScrollLevel: 0,
+		Race3DLevel: 0
+	}
 
 func reset_state() -> void:
 	timer = 0
@@ -67,11 +71,6 @@ func reset_state() -> void:
 	
 	willpower_hp = 100.0
 	dopamine_mp = 0.0
-	
-	highscore_map = {
-		SideScrollLevel: 0,
-		Race3DLevel: 0
-	}
 
 func _process(delta: float) -> void:
 	if is_timer_active:

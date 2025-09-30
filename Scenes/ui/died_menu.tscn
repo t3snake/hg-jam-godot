@@ -33,7 +33,7 @@ text = "You remain a dreamer forever."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BestClearTime" type="Label" parent="TextureRect"]
+[node name="BestScore" type="Label" parent="TextureRect"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
@@ -50,7 +50,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_kuoiw")
 theme_override_font_sizes/font_size = 50
-text = "Best Clear Time: 0.00 s"
+text = "Best Score: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 

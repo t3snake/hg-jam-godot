@@ -6,10 +6,11 @@ func _ready() -> void:
 	
 	var current_level = GlobalState.current_level
 	var high_score = GlobalState.highscore_map[current_level]
-	%BestClearTime.text = "Best Clear Time: %.2f s" % high_score
+	%BestScore.text = "Best Score: %d" % high_score
 
 func _on_restart_button_pressed() -> void:
-	GlobalState.go_to_level(GlobalState.LevelSelectHub3D)
+	GlobalState.reset_state()
+	GlobalState.go_to_level(GlobalState.SideScrollLevel)
 
 func _on_main_menu_button_pressed() -> void:
 	GlobalState.go_to_level(GlobalState.MainMenu)

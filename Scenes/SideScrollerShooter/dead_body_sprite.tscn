@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://60cl7cprtlx8"]
+
+[ext_resource type="Texture2D" uid="uid://ds462ajaqcppf" path="res://assets/Sprites/Craftpix/EnemyGangster/Dead.png" id="1_sb3b4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t147p"]
+atlas = ExtResource("1_sb3b4")
+region = Rect2(512, 0, 128, 128)
+
+[node name="DeadBodySprite" type="Sprite2D"]
+z_index = 6
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_t147p")

@@ -10,6 +10,8 @@ class_name EnemyGangster
 @export_range(0.0, 1.0) var hit_friction = 0.4
 @export_range(0.0 , 1.0) var acceleration = 0.25
 
+@export var dead_body_sprite : PackedScene
+
 var is_running : bool
 var is_attacking : bool
 var is_hurt : bool
@@ -78,10 +80,12 @@ func _on_sprite_animation_finished() -> void:
 	if sprite.animation == "dead":
 		is_dead = false
 		# TODO leave dead body sprite - spawn here?
-		var dead_body_sprite = %DeadBodySprite
-		dead_body_sprite.show()
-		remove_child(dead_body_sprite)
-		get_tree().root.add_child(dead_body_sprite)
+		
+		var dead_body = dead_body_sprite.instantiate()
+		dead_body.global_position = global_position
+		if flip:
+			dead_body.flip_h = true
+		get_parent().add_child(dead_body)
 		queue_free()
 
 func _on_sprite_frame_changed() -> void:

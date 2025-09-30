@@ -35,6 +35,7 @@ func _input(event: InputEvent) -> void:
 
 func _process(_delta):
 	if GlobalState.timer >= 120.0:
+		
 		GlobalState.set_level_cleared()
 		GlobalState.go_to_level(GlobalState.LevelBeatMenu)
 		return

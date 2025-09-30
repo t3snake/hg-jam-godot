@@ -53,6 +53,7 @@ theme_override_constants/separation = 70
 alignment = 1
 
 [node name="NextLevelButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 focus_neighbor_bottom = NodePath(".")

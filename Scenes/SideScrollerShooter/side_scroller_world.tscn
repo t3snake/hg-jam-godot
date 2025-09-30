@@ -88,5 +88,7 @@ position = Vector2(136, -36)
 position = Vector2(447, -104)
 
 [node name="HUD" parent="." instance=ExtResource("8_tyq44")]
+hint_enabled = true
+hint_text = "Hint abc"
 
 [editable path="Gangster2D"]

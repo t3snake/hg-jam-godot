@@ -23,7 +23,9 @@ func _on_next_level_button_pressed() -> void:
 	GlobalState.go_to_level(GlobalState.LevelSelectHub3D)
 
 func _on_restart_button_pressed() -> void:
+	GlobalState.reset_state()
 	GlobalState.go_to_level(GlobalState.current_level)
 
 func _on_main_menu_button_pressed() -> void:
+	GlobalState.reset_state()
 	GlobalState.go_to_level(GlobalState.MainMenu)

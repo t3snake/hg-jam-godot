@@ -13,7 +13,6 @@ class_name MainCharacter3D
 #@onready var gold_collect_player = %GoldCollected
 #@onready var death_player = %Death
 
-@export var current_level: int
 
 # editor exported state
 @export_group("Player Parameters")
@@ -49,7 +48,7 @@ var is_dead : bool
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 3
 
 func _ready() -> void:
-	GlobalState.init_level(current_level)
+	GlobalState.init_level(GlobalState.LevelSelectHub3D)
 	GlobalState.start_timer()
 	
 	character_state = CharacterState.IDLE
