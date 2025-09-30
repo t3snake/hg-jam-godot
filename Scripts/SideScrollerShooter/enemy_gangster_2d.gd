@@ -26,10 +26,10 @@ func register_hit():
 	if health <= 0:
 		is_dead = true
 		GlobalState.dopamine_mp += 4.0
-		GlobalState.sleep_for_ms(20)
+		GlobalState.sleep_for_ms(40)
 	else:
 		is_hurt = true
-		GlobalState.sleep_for_ms(20)
+		GlobalState.sleep_for_ms(40)
 
 func _process(_delta: float) -> void:
 	set_animation()

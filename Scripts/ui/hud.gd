@@ -8,7 +8,7 @@ extends CanvasLayer
 var is_dopamine_depleting = true
 
 func _ready() -> void:
-	%Level.text = "Level %d" % GlobalState.current_level
+	%Level.text = GlobalState.level_title_map[GlobalState.current_level]
 	
 	if hint_enabled:
 		%HintBackground.show()

@@ -22,11 +22,7 @@ character_marker = NodePath("../Gangster2D/SpriteParent/CameraTarget")
 [node name="Gangster2D" parent="." instance=ExtResource("2_vlokl")]
 z_index = 4
 position = Vector2(-512, -66)
-speed = null
-jump_speed = null
-gravity = null
 friction = 0.15
-acceleration = null
 
 [node name="GangsterSprite" parent="Gangster2D/SpriteParent" index="1"]
 z_index = 6

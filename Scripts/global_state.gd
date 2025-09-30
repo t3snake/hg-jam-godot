@@ -1,18 +1,18 @@
 extends Node
 
+# main timer
 var timer: float
 var is_timer_active: bool
-
 
 # main game ids
 const SideScrollLevel := "side_scroll_shooter"
 const Race3DLevel := "race_3D_Level"
 
 # ui scene ids
-const main_menu := "main_menu"
-const level_beat_menu := "level_beat"
-const level_fail_menu := "level_fail"
-const game_beat_menu := "game_beat"
+const MainMenu := "main_menu"
+const LevelBeatMenu := "level_beat"
+const LevelFailMenu := "level_fail"
+const GameBeatMenu := "game_beat"
 
 # resusable constants
 const scene_root := "res://Scenes/"
@@ -20,17 +20,21 @@ const scene_root := "res://Scenes/"
 ## level id to scene path map
 var level_scene_map := {
 	SideScrollLevel: scene_root + "SideScrollerShooter/side_scroller_world.tscn",
-	# other main levels
-	main_menu: scene_root + "UI/main_menu.tscn",
-	level_fail_menu: scene_root + "UI/died_menu.tscn",
-	game_beat_menu: scene_root + "UI/beat_game_menu.tscn"
+	# TODO other main levels
+	MainMenu: scene_root + "UI/main_menu.tscn",
+	LevelFailMenu: scene_root + "UI/died_menu.tscn",
+	GameBeatMenu: scene_root + "UI/beat_game_menu.tscn"
 }
 
+var level_title_map := {
+	SideScrollLevel: "Focus and kill impulses"
+}
+
+## Stores highscores for key: Level Id (global_state.gd)
 var highscore_map := {
 	SideScrollLevel: 0,
 	Race3DLevel: 0
 }
-#var bonus_time_map: Array  # in seconds
 
 # current state
 var current_level : String
@@ -101,10 +105,7 @@ func init_level(level: String) -> void:
 	is_current_level_cleared = false
 
 ## Set level as cleared
-func set_level_cleared() -> void:
-	#if current_level > levels_cleared:
-		#levels_cleared = current_level
-	
+func set_level_cleared() -> void:	
 	is_current_level_cleared = true
 	
 	if highscore_map[current_level] == 0:

@@ -21,7 +21,8 @@ var is_jumping : bool
 
 
 func _ready():
-	GlobalState.init_level()
+	GlobalState.init_level(GlobalState.SideScrollLevel)
+	GlobalState.start_timer()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):

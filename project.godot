@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ADHD HG Jam"
-run/main_scene="uid://lqe61ylgs8xr"
+run/main_scene="uid://c4c2sowd24wio"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=144
 config/icon="res://icon.svg"

@@ -66,7 +66,42 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/HBoxContainer"]
+[node name="MarginContainerBarLabels" type="MarginContainer" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/HBoxContainer/MarginContainerBarLabels"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Willpower" type="Label" parent="TextureRect/HBoxContainer/MarginContainerBarLabels/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0.27058825, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_wecwr")
+theme_override_font_sizes/font_size = 35
+text = "Willpower"
+vertical_alignment = 1
+
+[node name="Dopamine" type="Label" parent="TextureRect/HBoxContainer/MarginContainerBarLabels/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0.34117648, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_wecwr")
+theme_override_font_sizes/font_size = 35
+text = "Dopamine"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MarginContainerBars" type="MarginContainer" parent="TextureRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -74,12 +109,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/HBoxContainer/MarginContainerBars"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="WillpowerBar" type="ProgressBar" parent="TextureRect/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="WillpowerBar" type="ProgressBar" parent="TextureRect/HBoxContainer/MarginContainerBars/VBoxContainer"]
 unique_name_in_owner = true
 z_index = 2
 custom_minimum_size = Vector2(0, 20)
@@ -91,7 +126,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_8glcj")
 value = 100.0
 show_percentage = false
 
-[node name="DamageBar" type="ProgressBar" parent="TextureRect/HBoxContainer/MarginContainer/VBoxContainer/WillpowerBar"]
+[node name="DamageBar" type="ProgressBar" parent="TextureRect/HBoxContainer/MarginContainerBars/VBoxContainer/WillpowerBar"]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(100, 20)
@@ -103,7 +138,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ux5h0")
 value = 100.0
 show_percentage = false
 
-[node name="DopamineBar" type="ProgressBar" parent="TextureRect/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="DopamineBar" type="ProgressBar" parent="TextureRect/HBoxContainer/MarginContainerBars/VBoxContainer"]
 unique_name_in_owner = true
 z_index = 2
 custom_minimum_size = Vector2(0, 20)
@@ -114,7 +149,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_fdl0h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mqf2c")
 show_percentage = false
 
-[node name="RegenBar" type="ProgressBar" parent="TextureRect/HBoxContainer/MarginContainer/VBoxContainer/DopamineBar"]
+[node name="RegenBar" type="ProgressBar" parent="TextureRect/HBoxContainer/MarginContainerBars/VBoxContainer/DopamineBar"]
 unique_name_in_owner = true
 show_behind_parent = true
 custom_minimum_size = Vector2(100, 20)
@@ -125,27 +160,40 @@ theme_override_styles/background = SubResource("StyleBoxFlat_vsu76")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7wqu8")
 show_percentage = false
 
-[node name="TimeElapsed" type="Label" parent="TextureRect/HBoxContainer"]
+[node name="MarginContainerLevelStatus" type="MarginContainer" parent="TextureRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/HBoxContainer/MarginContainerLevelStatus"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="TimeElapsed" type="Label" parent="TextureRect/HBoxContainer/MarginContainerLevelStatus/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_wecwr")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Time elapsed: 0 s"
 vertical_alignment = 1
 
-[node name="Level" type="Label" parent="TextureRect/HBoxContainer"]
+[node name="Level" type="Label" parent="TextureRect/HBoxContainer/MarginContainerLevelStatus/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_wecwr")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 35
 text = "Level X"
 horizontal_alignment = 2
 vertical_alignment = 1
