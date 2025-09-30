@@ -20,6 +20,12 @@ var is_hurt : bool
 @onready var sprite := %GangsterSprite
 @onready var muzzle_flash := %MuzzleFlash
 
+# sounds
+@onready var footstep_player := $FootstepPlayer
+@onready var jump_sound_player := $JumpSoundPlayer
+@onready var hurt_sound_player := $HurtSoundPlayer
+@onready var shoot_sound_player := $ShootingSoundPlayer
+
 
 func _ready():
 	GlobalState.init_level(GlobalState.SideScrollLevel)
@@ -72,6 +78,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		is_jumping = true
 		velocity.y = jump_speed
+		jump_sound_player.play()
 
 func set_animation():
 	if is_hurt:
@@ -103,10 +110,19 @@ func _on_gangster_sprite_animation_finished() -> void:
 	if is_hurt and sprite.animation == "hurt":
 		is_hurt = false
 
+func _on_gangster_sprite_frame_changed() -> void:
+	if is_zero_approx(velocity.x):
+		return
+	
+	if sprite.animation == "run" and (sprite.frame == 4 or sprite.frame == 9):
+		footstep_player.play()
+	elif sprite.animation == "walk" and (sprite.frame == 2 or sprite.frame == 7):
+		footstep_player.play()
+
 func shoot_bullet() -> void:
 	#muzzle_flash.show()
 	#muzzle_flash.play("default")
-	# TODO instantiate bullet
+	shoot_sound_player.play()
 	var bullet := bullet_2d.instantiate()
 	get_parent().add_child(bullet)
 	bullet.start(
@@ -117,6 +133,8 @@ func shoot_bullet() -> void:
 func register_hit() -> void:
 	GlobalState.willpower_hp -= 5
 	is_hurt = true
+	hurt_sound_player.play()
+	GlobalState.sleep_for_ms(20)
 
 func game_over() -> void:
 	GlobalState.stop_timer()

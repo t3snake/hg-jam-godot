@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://pxi6hs4ec7qy"]
+[gd_scene load_steps=110 format=3 uid="uid://pxi6hs4ec7qy"]
 
 [ext_resource type="Script" uid="uid://bxlsiu6nfaamx" path="res://Scripts/SideScrollerShooter/gangster_2d.gd" id="1_pyu44"]
 [ext_resource type="PackedScene" uid="uid://bmm8giqld6mvn" path="res://Scenes/SideScrollerShooter/bullet_2d.tscn" id="2_m8jij"]
@@ -13,6 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://8wgxsaktw0tx" path="res://assets/Sprites/Craftpix/Gangster/Shot.png" id="10_bo56p"]
 [ext_resource type="Texture2D" uid="uid://d4fkfferwbtw7" path="res://assets/Sprites/Craftpix/Gangster/Walk.png" id="11_4ivov"]
 [ext_resource type="Texture2D" uid="uid://c3il2h6ocueib" path="res://assets/Sprites/t3snake/FastBulletSprite.png" id="12_opwoa"]
+[ext_resource type="AudioStream" uid="uid://bmh2ikun1tw2a" path="res://assets/Sounds/Kenney/footstep_grass_000.ogg" id="14_qmok2"]
+[ext_resource type="AudioStream" uid="uid://hgc3u5wyt5r5" path="res://assets/Sounds/Kenney/footstep_grass_001.ogg" id="15_fcv7e"]
+[ext_resource type="AudioStream" uid="uid://b2vhomulxb54v" path="res://assets/Sounds/Kenney/footstep_grass_002.ogg" id="16_bo56p"]
+[ext_resource type="AudioStream" uid="uid://bjpcfc1g4j5ih" path="res://assets/Sounds/Kenney/footstep_grass_003.ogg" id="17_4ivov"]
+[ext_resource type="AudioStream" uid="uid://c3i0rktt1a4n6" path="res://assets/Sounds/Kenney/footstep_grass_004.ogg" id="18_jqljh"]
+[ext_resource type="AudioStream" uid="uid://cucjn78abpma8" path="res://assets/Sounds/VOiD1/Jump_20.wav" id="19_fcv7e"]
+[ext_resource type="AudioStream" uid="uid://cs8ub36mfcvy" path="res://assets/Sounds/VOiD1/Hit_5.wav" id="20_bo56p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ll0v5"]
 size = Vector2(30, 70)
@@ -668,6 +675,14 @@ animations = [{
 "speed": 11.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yewb8"]
+streams_count = 5
+stream_0/stream = ExtResource("14_qmok2")
+stream_1/stream = ExtResource("15_fcv7e")
+stream_2/stream = ExtResource("16_bo56p")
+stream_3/stream = ExtResource("17_4ivov")
+stream_4/stream = ExtResource("18_jqljh")
+
 [node name="Gangster2D" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
@@ -693,14 +708,26 @@ frame_progress = 1.0
 [node name="GangsterSprite" type="AnimatedSprite2D" parent="SpriteParent"]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_0ojyx")
-animation = &"hurt"
+animation = &"walk"
 
 [node name="CameraTarget" type="Marker2D" parent="SpriteParent"]
 unique_name_in_owner = true
 position = Vector2(220, -70)
 
-[node name="DopamineRegenTimer" type="Timer" parent="."]
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_yewb8")
+
+[node name="JumpSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_fcv7e")
+volume_db = -4.333
+
+[node name="HurtSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_bo56p")
+
+[node name="ShootingSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_bo56p")
 
 [connection signal="animation_finished" from="SpriteParent/MuzzleFlash" to="." method="_on_muzzle_flash_animation_finished"]
 [connection signal="animation_finished" from="SpriteParent/GangsterSprite" to="." method="_on_gangster_sprite_animation_finished"]
 [connection signal="animation_looped" from="SpriteParent/GangsterSprite" to="." method="_on_sprite_animation_looped"]
+[connection signal="frame_changed" from="SpriteParent/GangsterSprite" to="." method="_on_gangster_sprite_frame_changed"]

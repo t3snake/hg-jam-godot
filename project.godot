@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalState="*res://Scripts/global_state.gd"
+BgMusicPlayer="*res://Scenes/bg_music_player.tscn"
 
 [display]
 

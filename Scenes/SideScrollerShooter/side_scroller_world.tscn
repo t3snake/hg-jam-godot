@@ -89,6 +89,7 @@ position = Vector2(447, -104)
 
 [node name="HUD" parent="." instance=ExtResource("8_tyq44")]
 hint_enabled = true
-hint_text = "Hint abc"
+hint_text = "Maintain focus for 2 minutes and dont get hit by your impulses."
+bar_delay = 10
 
 [editable path="Gangster2D"]

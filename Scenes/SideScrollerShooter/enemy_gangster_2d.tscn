@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dejqf14262hgx"]
+[gd_scene load_steps=36 format=3 uid="uid://dejqf14262hgx"]
 
 [ext_resource type="Texture2D" uid="uid://n1mngc6l2bfs" path="res://assets/Sprites/Craftpix/EnemyGangster/Attack.png" id="1_46g2t"]
 [ext_resource type="Script" uid="uid://c8vc4xbxbafp6" path="res://Scripts/SideScrollerShooter/enemy_gangster_2d.gd" id="1_h8o8g"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b2g7o2o4s30e3" path="res://assets/Sprites/Craftpix/EnemyGangster/Hurt.png" id="3_h47oy"]
 [ext_resource type="Texture2D" uid="uid://cgds0ecnsy2w7" path="res://assets/Sprites/Craftpix/EnemyGangster/Run.png" id="4_3n5xf"]
 [ext_resource type="PackedScene" uid="uid://60cl7cprtlx8" path="res://Scenes/SideScrollerShooter/dead_body_sprite.tscn" id="6_h47oy"]
+[ext_resource type="AudioStream" uid="uid://cs8ub36mfcvy" path="res://assets/Sounds/VOiD1/Hit_5.wav" id="7_3n5xf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8o8g"]
 atlas = ExtResource("1_46g2t")
@@ -237,6 +238,9 @@ collision_mask = 2
 [node name="HitRange" type="CollisionShape2D" parent="PunchArea"]
 position = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_h47oy")
+
+[node name="HurtSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3n5xf")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="frame_changed" from="Sprite" to="." method="_on_sprite_frame_changed"]

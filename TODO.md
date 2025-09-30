@@ -1,6 +1,7 @@
 ## TODO
 [ ] Generate Enemies automatically
 
+
 ## Finished
 [x] Add Camera in front and lerp for 2D
 [x] Smoothen bullet hit
@@ -18,6 +19,9 @@
 [x] Level Pass Condition: 2 Minute timer
 [x] Level Fail Condition
 [x] Leave dead body of enemies
+[x] Added sound effects
+[x] Add music
+
 
 ## Out of scope
 [ ] Add reload mechanic

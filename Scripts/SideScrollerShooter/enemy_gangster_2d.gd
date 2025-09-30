@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name EnemyGangster
 
 @onready var sprite := $Sprite
+@onready var hurt_sound_player := $HurtSoundPlayer
 
 @export var health := 2
 @export var speed := 200
@@ -25,13 +26,14 @@ func register_hit():
 		return
 	
 	health -= 1
+	hurt_sound_player.play()
 	if health <= 0:
 		is_dead = true
 		GlobalState.dopamine_mp += 4.0
-		GlobalState.sleep_for_ms(40)
+		GlobalState.sleep_for_ms(20)
 	else:
 		is_hurt = true
-		GlobalState.sleep_for_ms(40)
+		GlobalState.sleep_for_ms(20)
 
 func _process(_delta: float) -> void:
 	set_animation()

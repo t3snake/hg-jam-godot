@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://hes88t3d4blt"]
+
+[ext_resource type="AudioStream" uid="uid://bl36ko3q8c1ef" path="res://assets/Music/MikaidenJProjects/Synthpop.wav" id="1_1wrgp"]
+
+[node name="BGMusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_1wrgp")
+volume_db = -5.0
+autoplay = true

@@ -21,7 +21,7 @@ stretch_mode = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 145.0
+offset_bottom = 175.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
@@ -29,9 +29,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("4_kuoiw")
 theme_override_font_sizes/font_size = 50
-text = "You remain a dreamer forever."
+text = "You did not meet expectations and remained a dreamer forever."
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="BestScore" type="Label" parent="TextureRect"]
 unique_name_in_owner = true
