@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bacsxj46dvfla"]
 
-[ext_resource type="Script" uid="uid://skak4bakf6ik" path="res://Scripts/ui/end_menu.gd" id="1_jgk52"]
+[ext_resource type="Script" uid="uid://dvel3legjy3va" path="res://Scripts/ui/end_menu.gd" id="1_jgk52"]
 [ext_resource type="Texture2D" uid="uid://bw3amxscqygqq" path="res://assets/UI/naveena/background_scaled.png" id="1_xhijr"]
 [ext_resource type="FontFile" uid="uid://cfrp63w0hyxlv" path="res://assets/Font/MathewCarter/Charter Regular.ttf" id="4_cxrfc"]
 [ext_resource type="StyleBox" uid="uid://1lsqtg2a4k5l" path="res://resources/button_hover_texture.tres" id="5_ajodo"]
@@ -60,20 +60,20 @@ size_flags_horizontal = 3
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_cxrfc")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = ExtResource("5_ajodo")
-theme_override_styles/hover_pressed_mirrored = ExtResource("5_omusw")
-theme_override_styles/hover_pressed = ExtResource("5_omusw")
-theme_override_styles/hover_mirrored = ExtResource("5_ajodo")
-theme_override_styles/hover = ExtResource("5_ajodo")
-theme_override_styles/pressed_mirrored = ExtResource("5_omusw")
-theme_override_styles/pressed = ExtResource("5_omusw")
-theme_override_styles/normal_mirrored = ExtResource("5_omusw")
 theme_override_styles/normal = ExtResource("5_omusw")
+theme_override_styles/normal_mirrored = ExtResource("5_omusw")
+theme_override_styles/pressed = ExtResource("5_omusw")
+theme_override_styles/pressed_mirrored = ExtResource("5_omusw")
+theme_override_styles/hover = ExtResource("5_ajodo")
+theme_override_styles/hover_mirrored = ExtResource("5_ajodo")
+theme_override_styles/hover_pressed = ExtResource("5_omusw")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_omusw")
+theme_override_styles/focus = ExtResource("5_ajodo")
 text = "Next Level
 "
 
@@ -83,20 +83,20 @@ size_flags_horizontal = 3
 focus_neighbor_bottom = NodePath("../NextLevelButton")
 focus_next = NodePath("../NextLevelButton")
 focus_previous = NodePath(".")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_cxrfc")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = ExtResource("5_ajodo")
-theme_override_styles/hover_pressed_mirrored = ExtResource("5_omusw")
-theme_override_styles/hover_pressed = ExtResource("5_omusw")
-theme_override_styles/hover_mirrored = ExtResource("5_ajodo")
-theme_override_styles/hover = ExtResource("5_ajodo")
-theme_override_styles/pressed_mirrored = ExtResource("5_omusw")
-theme_override_styles/pressed = ExtResource("5_omusw")
-theme_override_styles/normal_mirrored = ExtResource("5_omusw")
 theme_override_styles/normal = ExtResource("5_omusw")
+theme_override_styles/normal_mirrored = ExtResource("5_omusw")
+theme_override_styles/pressed = ExtResource("5_omusw")
+theme_override_styles/pressed_mirrored = ExtResource("5_omusw")
+theme_override_styles/hover = ExtResource("5_ajodo")
+theme_override_styles/hover_mirrored = ExtResource("5_ajodo")
+theme_override_styles/hover_pressed = ExtResource("5_omusw")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_omusw")
+theme_override_styles/focus = ExtResource("5_ajodo")
 text = "Restart"
 
 [node name="MainMenuButton" type="Button" parent="TextureRect/MarginContainer/HBoxContainer"]
@@ -105,20 +105,20 @@ size_flags_horizontal = 3
 focus_neighbor_bottom = NodePath("../NextLevelButton")
 focus_next = NodePath("../NextLevelButton")
 focus_previous = NodePath(".")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_cxrfc")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/focus = ExtResource("5_ajodo")
-theme_override_styles/hover_pressed_mirrored = ExtResource("5_omusw")
-theme_override_styles/hover_pressed = ExtResource("5_omusw")
-theme_override_styles/hover_mirrored = ExtResource("5_ajodo")
-theme_override_styles/hover = ExtResource("5_ajodo")
-theme_override_styles/pressed_mirrored = ExtResource("5_omusw")
-theme_override_styles/pressed = ExtResource("5_omusw")
-theme_override_styles/normal_mirrored = ExtResource("5_omusw")
 theme_override_styles/normal = ExtResource("5_omusw")
+theme_override_styles/normal_mirrored = ExtResource("5_omusw")
+theme_override_styles/pressed = ExtResource("5_omusw")
+theme_override_styles/pressed_mirrored = ExtResource("5_omusw")
+theme_override_styles/hover = ExtResource("5_ajodo")
+theme_override_styles/hover_mirrored = ExtResource("5_ajodo")
+theme_override_styles/hover_pressed = ExtResource("5_omusw")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_omusw")
+theme_override_styles/focus = ExtResource("5_ajodo")
 text = "Main Menu"
 
 [node name="ClearTime" type="Label" parent="TextureRect"]

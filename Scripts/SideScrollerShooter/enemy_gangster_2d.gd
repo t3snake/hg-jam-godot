@@ -19,6 +19,9 @@ var target : Node2D
 var flip : bool
 
 func register_hit():
+	if is_dead:
+		return
+	
 	health -= 1
 	if health <= 0:
 		is_dead = true
@@ -75,7 +78,18 @@ func _on_sprite_animation_finished() -> void:
 	if sprite.animation == "dead":
 		is_dead = false
 		# TODO leave dead body sprite - spawn here?
+		var dead_body_sprite = %DeadBodySprite
+		dead_body_sprite.show()
+		remove_child(dead_body_sprite)
+		get_tree().root.add_child(dead_body_sprite)
 		queue_free()
+
+func _on_sprite_frame_changed() -> void:
+	if !(sprite.is_playing() and sprite.animation == "attack"):
+		return
+	
+	if sprite.frame == 2 and target is GangsterMC:
+		target.register_hit()
 
 func _on_detect_area_body_entered(body: Node2D) -> void:
 	if body is GangsterMC:

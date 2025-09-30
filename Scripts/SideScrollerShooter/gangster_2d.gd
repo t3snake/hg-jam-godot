@@ -20,6 +20,9 @@ var is_jumping : bool
 @onready var muzzle_flash := %MuzzleFlash
 
 
+func _ready():
+	GlobalState.init_level()
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		is_shooting = true
@@ -92,3 +95,11 @@ func shoot_bullet() -> void:
 		sprite_parent.scale.x > 0,  # is positive x direction
 		muzzle_flash.global_position  # initial position of bullet
 	)
+
+func register_hit() -> void:
+	GlobalState.willpower_hp -= 5
+
+func game_over() -> void:
+	GlobalState.stop_timer()
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://Scenes/ui/died_menu.tscn")

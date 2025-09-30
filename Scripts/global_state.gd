@@ -3,15 +3,37 @@ extends Node
 var timer: float
 var is_timer_active: bool
 
-# global state
-var total_levels: int = 6
-var levels_cleared: int
-# TODO this could be array since key is level
-var highscore_map: Dictionary
-var bonus_time_map: Array  # in seconds
+
+# main game ids
+const SideScrollLevel := "side_scroll_shooter"
+const Race3DLevel := "race_3D_Level"
+
+# ui scene ids
+const main_menu := "main_menu"
+const level_beat_menu := "level_beat"
+const level_fail_menu := "level_fail"
+const game_beat_menu := "game_beat"
+
+# resusable constants
+const scene_root := "res://Scenes/"
+
+## level id to scene path map
+var level_scene_map := {
+	SideScrollLevel: scene_root + "SideScrollerShooter/side_scroller_world.tscn",
+	# other main levels
+	main_menu: scene_root + "UI/main_menu.tscn",
+	level_fail_menu: scene_root + "UI/died_menu.tscn",
+	game_beat_menu: scene_root + "UI/beat_game_menu.tscn"
+}
+
+var highscore_map := {
+	SideScrollLevel: 0,
+	Race3DLevel: 0
+}
+#var bonus_time_map: Array  # in seconds
 
 # current state
-var current_level : int
+var current_level : String
 var is_current_level_cleared : bool
 var is_time_dilated : bool
 
@@ -25,18 +47,18 @@ var kbm_active: bool
 
 # Internal functions
 func _ready() -> void:
-	levels_cleared = 0
+	#levels_cleared = 0
 	timer = 0
 	is_timer_active = false
 	is_time_dilated = false
 	
-	willpower_hp = 40.0
+	willpower_hp = 100.0
 	dopamine_mp = 0.0
 	
 	highscore_map = {}
-	bonus_time_map = [3, 3, 3, 4, 4, 5]
-	for lvl in range(total_levels):
-		highscore_map[lvl] = 0
+	#bonus_time_map = [3, 3, 3, 4, 4, 5]
+	#for lvl in range(total_levels):
+		#highscore_map[lvl] = 0
 
 func _process(delta: float) -> void:
 	if is_timer_active:
@@ -71,7 +93,7 @@ func toggle_time_dilation():
 # Level management functions
 
 ## Called when new level is started to restart state such as timer
-func init_level(level: int) -> void:
+func init_level(level: String) -> void:
 	current_level = level
 	timer = 0
 	is_timer_active = false
@@ -80,24 +102,19 @@ func init_level(level: int) -> void:
 
 ## Set level as cleared
 func set_level_cleared() -> void:
-	if current_level > levels_cleared:
-		levels_cleared = current_level
+	#if current_level > levels_cleared:
+		#levels_cleared = current_level
 	
 	is_current_level_cleared = true
 	
-	if highscore_map[current_level - 1] == 0:
-		highscore_map[current_level - 1] = timer
-	elif timer < highscore_map[current_level - 1]:
-		highscore_map[current_level - 1] = timer
+	if highscore_map[current_level] == 0:
+		highscore_map[current_level] = timer
+	elif timer < highscore_map[current_level]:
+		highscore_map[current_level] = timer
 
-## Go to next level (if levels are numbered as level1.tscn)
-func go_to_next_level() -> void:
-	if current_level < total_levels:
-		get_tree().change_scene_to_file(
-			"res://Scenes/level%d.tscn" % (current_level + 1)
-		)
-	else:
-		get_tree().change_scene_to_file("res://Scenes/ui/beat_game_menu.tscn")
+## Load scene for given level id (see constants in global_state.gd)
+func go_to_level(level_id: String) -> void:
+	get_tree().change_scene_to_file(level_scene_map[level_id])
 
 ## Restart currently running level
 func restart_level() -> void:

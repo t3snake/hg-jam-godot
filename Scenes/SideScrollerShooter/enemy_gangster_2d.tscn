@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dejqf14262hgx"]
+[gd_scene load_steps=35 format=3 uid="uid://dejqf14262hgx"]
 
 [ext_resource type="Texture2D" uid="uid://n1mngc6l2bfs" path="res://assets/Sprites/Craftpix/EnemyGangster/Attack.png" id="1_46g2t"]
 [ext_resource type="Script" uid="uid://c8vc4xbxbafp6" path="res://Scripts/SideScrollerShooter/enemy_gangster_2d.gd" id="1_h8o8g"]
@@ -6,25 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://b2g7o2o4s30e3" path="res://assets/Sprites/Craftpix/EnemyGangster/Hurt.png" id="3_h47oy"]
 [ext_resource type="Texture2D" uid="uid://cgds0ecnsy2w7" path="res://assets/Sprites/Craftpix/EnemyGangster/Run.png" id="4_3n5xf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65os7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8o8g"]
 atlas = ExtResource("1_46g2t")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7khso"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h47oy"]
 atlas = ExtResource("1_46g2t")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vjqvu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n5xf"]
+atlas = ExtResource("1_46g2t")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65os7"]
 atlas = ExtResource("1_46g2t")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3p6q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7khso"]
 atlas = ExtResource("1_46g2t")
 region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t147p"]
-atlas = ExtResource("1_46g2t")
-region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mew0b"]
 atlas = ExtResource("2_h8o8g")
@@ -106,19 +106,19 @@ region = Rect2(1152, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_h8o8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h47oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3n5xf")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_65os7")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7khso")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vjqvu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y3p6q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t147p")
 }],
 "loop": false,
 "name": &"attack",
@@ -197,6 +197,10 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t147p"]
+atlas = ExtResource("2_h8o8g")
+region = Rect2(512, 0, 128, 128)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_036d6"]
 size = Vector2(43, 76)
 
@@ -217,6 +221,9 @@ sprite_frames = SubResource("SpriteFrames_1e62g")
 animation = &"attack"
 
 [node name="DeadBodySprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+texture = SubResource("AtlasTexture_t147p")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-11.5, 28)
@@ -239,6 +246,7 @@ position = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_h47oy")
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="frame_changed" from="Sprite" to="." method="_on_sprite_frame_changed"]
 [connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
 [connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]
 [connection signal="body_entered" from="PunchArea" to="." method="_on_punch_area_body_entered"]
