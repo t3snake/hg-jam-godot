@@ -13,4 +13,5 @@ func _on_restart_button_pressed() -> void:
 	GlobalState.go_to_level(GlobalState.SideScrollLevel)
 
 func _on_main_menu_button_pressed() -> void:
+	GlobalState.reset_state()
 	GlobalState.go_to_level(GlobalState.MainMenu)

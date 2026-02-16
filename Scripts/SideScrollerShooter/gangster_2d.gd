@@ -44,6 +44,7 @@ func _process(_delta):
 	set_animation()
 	
 	if GlobalState.timer >= 120.0:
+		GlobalState.stop_timer()
 		GlobalState.set_level_cleared()
 		GlobalState.go_to_level(GlobalState.LevelBeatMenu)
 		return
@@ -144,8 +145,8 @@ func register_hit() -> void:
 	GlobalState.willpower_hp -= 5
 	GlobalState.dopamine_mp += 5
 	is_hurt = true
-	hurt_sound_player.play()
 	GlobalState.sleep_for_ms(20)
+	hurt_sound_player.play()
 
 func game_over() -> void:
 	GlobalState.stop_timer()
