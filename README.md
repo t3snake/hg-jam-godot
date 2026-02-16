@@ -1,6 +1,6 @@
 # Untitled ADHD Game
 
-Submission for [HealthyGamer Game Jam 2025](https://itch.io/jam/hg-gj)
+Submission for [HealthyGamer Game Jam 2025](https://itch.io/jam/hg-gj) made in 1 month (mostly 2 weeks).
 
 [Untitled ADHD Game - Play on Itch.io](https://t3snake.itch.io/untitled-adhd-game)
 
@@ -16,7 +16,7 @@ Use one or more of the following themes:
 
 ## Engine
 
-Godot 4.5 in Compatibility mode
+Godot 4.5 in Compatibility mode (Now migrated to 4.6)
 
 Web Build Hosted
 
