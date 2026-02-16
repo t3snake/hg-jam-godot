@@ -4,7 +4,7 @@ Submission for [HealthyGamer Game Jam 2025](https://itch.io/jam/hg-gj)
 
 [Untitled ADHD Game - Play on Itch.io](https://t3snake.itch.io/untitled-adhd-game)
 
-![Gif](./gif)
+![Gameplay GIF](./UntitledAdhdGame.gif)
 
 ## Theme
 
